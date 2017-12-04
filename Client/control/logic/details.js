@@ -24,7 +24,7 @@ var app = new Vue({
             window.location.href = "details.html?id=" + id;
         }
     }
-})
+});
 
 
 var params = new UrlSearch(); //实例化
@@ -73,7 +73,7 @@ axios.put('/api/articles/' + params.id).then(function (response) {
 function UrlSearch() {
     var name, value;
     var str = location.href; //取得整个地址栏
-    var num = str.indexOf("?")
+    var num = str.indexOf("?");
     str = str.substr(num + 1); //取得所有参数
 
     var arr = str.split("&"); //各个参数放到数组里

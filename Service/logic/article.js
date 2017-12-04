@@ -39,15 +39,15 @@ function addArticles(req, res) {
                 classify_name: bean.classify_name,
                 classify_id: bean.classify_id
             }
-        }
+        };
         obj.update({"_id": bean.id}, updates, function (err) {
-            if (err) console.warn(err)
-            console.log('article update success')
+            if (err) console.warn(err);
+            console.log('article update success');
         });
     } else {
         eb.save(function (err, result) {
-            if (err) console.warn(err)
-            console.log('article save success')
+            if (err) console.warn(err);
+            console.log('article save success');
         })
     }
 
@@ -71,15 +71,15 @@ function addTags(name) {
     var p = Q.defer();
     var obj = mongoose.model('tag', TAG_BO);
     getTagsSingle(name).then(function (result) {
-        if (result == null || result.length == 0) {
+        if (result === null || result.length === 0) {
             var tag_id = uuidv4().replace(/-/g, "");
             var eb = new obj({
                 _id: tag_id,
                 name: name
             });
             eb.save(function (err, result) {
-                if (err) console.warn(err)
-                console.log('tags save success')
+                if (err) console.warn(err);
+                console.log('tags save success');
                 p.resolve(tag_id);
             })
         } else {
@@ -105,12 +105,12 @@ function addArticleTagsLink(tag_id, article_id) {
         }
         if (result === null || result.length === 0) {
             eb.save(function (err, result) {
-                if (err) console.warn(err)
-                console.log('articletagslink save success')
+                if (err) console.warn(err);
+                console.log('articletagslink save success');
                 p.resolve("zuihou");
             })
         }
-    })
+    });
     return p.promise;
 }
 
@@ -143,7 +143,7 @@ function getTags(erq, res) {
                     n++;
                     map[result[0]._id].name = result[0].name;
                     map[result[0]._id]._id = result[0]._id;
-                    if (n == len) {
+                    if (n === len) {
                         res.send(map);
                     }
                 });
@@ -164,7 +164,7 @@ function getArticleTags(req, res) {
             var tag_id = result[i].tag_id;
             obj1.find({'_id': tag_id}, function (err, result) {
                 n++;
-                tagstr += result[0].name + ","
+                tagstr += result[0].name + ",";
                 if (n === len) {
                     res.send(tagstr);
                 }
@@ -196,9 +196,9 @@ function getArticleListByType(req, res) {
     var obj1 = mongoose.model('article', ARTICLE_BO);
     var obj2 = mongoose.model('articletagslink', ARTICLETAGSLINK_BO);
 
-    var type = req.params.type
+    var type = req.params.type;
     //标签
-    if (type == 1) {
+    if (type === 1) {
         obj2.find({'tag_id': req.params.arg}, null, {sort: ({"createtime": -1})}, function (err, result) {
             var map = {};
             var len = result.length;
@@ -209,7 +209,7 @@ function getArticleListByType(req, res) {
                 obj1.find({'_id': tmpid}, function (err, result) {
                     n++;
                     map[result[0]._id] = result[0];
-                    if (n == len) {
+                    if (n === len) {
                         res.send(map);
                     }
                 });
@@ -218,7 +218,7 @@ function getArticleListByType(req, res) {
     }
 
     //历程
-    if (type == 2) {
+    if (type === 2) {
         obj1.find({'lives': req.params.arg}, null, {sort: ({"createtime": -1})}, function (err, result) {
             res.send(result);
         });
@@ -226,7 +226,7 @@ function getArticleListByType(req, res) {
 
     //详情上一篇/下一篇
     var bean = {};
-    if (type == 3) {
+    if (type === 3) {
         //上一篇
         obj1.find({"createtime": {"$lt": req.params.arg}}, null, {
             sort: ({"createtime": -1}),
@@ -266,7 +266,7 @@ function addClassifys(req, res) {
     var obj = mongoose.model('classify', CLASSIFY_BO);
     var eb = new obj({
         name: req.body.name
-    })
+    });
     eb.save();
     res.send(req.body.name + "-->>新增成功！");
 }

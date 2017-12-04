@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 
 var api = require('./Service/api/api');
-var db = require('./mongodb')
+var db = require('./mongodb');
 var app = express();
 
 // view engine setup

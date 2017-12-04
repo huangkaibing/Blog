@@ -41,7 +41,7 @@ var app = new Vue({
             });
         }
     }
-})
+});
 
 //分类查询
 axios.get('/api/classifys').then(function (response) {
@@ -93,7 +93,7 @@ if (params.id) {
 function UrlSearch() {
     var name, value;
     var str = location.href; //取得整个地址栏
-    var num = str.indexOf("?")
+    var num = str.indexOf("?");
     str = str.substr(num + 1); //取得所有参数
 
     var arr = str.split("&"); //各个参数放到数组里

@@ -33,7 +33,7 @@ var app = new Vue({
             window.location.href = "ms_add.html";
         }
     }
-})
+});
 
 function init() {
 //文章列表查询
