@@ -29,28 +29,29 @@
         <div class="col-md-9">
             <div class="articlelist" v-for="el in articles">
                 <h3>
-                    <a href="javascript:;" @click="goDetails(el._id)">{{el.title}}</a>
+                    <a href="javascript:" @click="goDetails(el._id)">{{el.title}}</a>
                 </h3>
                 <div class="articledesc">
                     <div class="titledesc">
-                        <img src="../img/time_16.png">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                         <span>{{el.createtime|subListTime}}</span>
                     </div>
                     <div class="titledesc">
-                        <img src="../img/eye_16.png">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                         <span>{{el.viewnum}}</span>
                     </div>
                     <div class="titledesc">
-                        <img src="../img/folder_16.png">
+                        <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                         <span>{{el.classify_name}}</span>
                     </div>
-                    <a href="javascript:;" @click="goDetails(el._id)">查看更多</a>
+                    <a href="javascript:" @click="goDetails(el._id)">查看更多</a>
                 </div>
             </div>
         </div>
         <div class="col-md-3 indexCenterRight">
+
             <div class="indexSearch">
-                <i class="icon-search"></i>
+                <i class="icon-search"><span class=" glyphicon glyphicon-search" aria-hidden="true"></span></i>
                 <input class="searchContent" type="text"/>
             </div>
             <div class="indexTag">
@@ -58,7 +59,7 @@
                 <div class="indexTagTags">
                     <ul>
                         <li v-for="el in tags">
-                            <a href="javascript:;"
+                            <a href="javascript:"
                                @click="sArticlesByType(1,el._id)">{{el.name}}<span>（{{el.count}}）</span></a>
                         </li>
                     </ul>
@@ -69,7 +70,7 @@
                 <div class="indexTagTags">
                     <ul>
                         <li v-for="el in lives">
-                            <a href="javascript:;" @click="sArticlesByType(2,el._id)">{{el._id|subLiveTime}}<span>[{{el.count}}篇]</span></a>
+                            <a href="javascript:" @click="sArticlesByType(2,el._id)">{{el._id|subLiveTime}}<span>[{{el.count}}篇]</span></a>
                         </li>
                     </ul>
                 </div>

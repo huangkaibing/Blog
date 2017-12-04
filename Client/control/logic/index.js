@@ -5,7 +5,7 @@
 
 //时间处理
 Vue.filter('subListTime', function (value) {
-    return moment(value).format('YYYY-MM-DD HH:MM:ss');
+    return moment(value).format('YYYY-MM-DD');
 });
 
 Vue.filter('subLiveTime', function (value) {
@@ -31,7 +31,7 @@ var app = new Vue({
             });
         }
     }
-})
+});
 
 //文章列表查询
 axios.get('/api/articles').then(function (response) {
