@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://root:huangkb@47.96.165.91:27017/test?authSource=admin', {
+mongoose.connect('mongodb://xx:xx@xx:xx/xx?authSource=admin', {
     useMongoClient: true, config: {autoIndex: false}
 });
 
