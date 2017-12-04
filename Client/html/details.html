@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap -->
+    <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+
+    <link href="../css/markdown.css" rel="stylesheet">
+    <title>details</title>
+</head>
+<body>
+<div class="container-fluid details" id="details">
+
+    <!--header-->
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <div class="page-header">
+                <a href="index.html">
+                    <h1>
+                        <!--黄开兵的个人博客-->
+                        hello world!
+                        <small></small>
+                    </h1>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--content-->
+    <div class="row-fluid">
+        <div class="col-md-12">
+
+            <div class="details_article_next">
+                <div class="details_article_classfily">
+                    <span>分类：{{classify_name}}</span>
+                </div>
+                <div class="details_article_prenext">
+                    <div v-if="last_id"><a href="javascript:;" @click="goDetails(last_id)">上一篇：{{lastArticleTitle}}</a>
+                    </div>
+                    <div v-if="next_id"><a href="javascript:;" @click="goDetails(next_id)">下一篇：{{nextArticleTitle}}</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details_articletitle">
+                <h1>
+                    {{title}}
+                </h1>
+            </div>
+
+            <div class="details_articlelable">
+                <p>作者：{{author}}</p>
+                <p>日期：{{createtime|subTime}}</p>
+            </div>
+            <div class="details_makdown markdown-body" v-html="content">
+            </div>
+
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="row-fluid">
+        <div class="col-md-12 text-center footer">
+            <h4>
+                敬请期待。。。
+            </h4>
+        </div>
+    </div>
+</div>
+
+<script src="../lib/vue.js"></script>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/axios.js"></script>
+<script src="../lib/moment.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.js"></script>
+<script src="../control/logic/details.js"></script>
+</body>
+</html>

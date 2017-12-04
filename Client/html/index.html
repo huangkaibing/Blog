@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap -->
+    <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <title>index</title>
+</head>
+<body>
+<div class="container-fluid" id="index">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <div class="page-header">
+                <a href="index.html">
+                    <h1>
+                        <!--黄开兵的个人博客-->
+                        hello world!
+                        <small></small>
+                    </h1>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="col-md-9">
+            <div class="articlelist" v-for="el in articles">
+                <h3>
+                    <a href="javascript:;" @click="goDetails(el._id)">{{el.title}}</a>
+                </h3>
+                <div class="articledesc">
+                    <div class="titledesc">
+                        <img src="../img/time_16.png">
+                        <span>{{el.createtime|subListTime}}</span>
+                    </div>
+                    <div class="titledesc">
+                        <img src="../img/eye_16.png">
+                        <span>{{el.viewnum}}</span>
+                    </div>
+                    <div class="titledesc">
+                        <img src="../img/folder_16.png">
+                        <span>{{el.classify_name}}</span>
+                    </div>
+                    <a href="javascript:;" @click="goDetails(el._id)">查看更多</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 indexCenterRight">
+            <div class="indexSearch">
+                <i class="icon-search"></i>
+                <input class="searchContent" type="text"/>
+            </div>
+            <div class="indexTag">
+                <div class="indexTagTitle">标签</div>
+                <div class="indexTagTags">
+                    <ul>
+                        <li v-for="el in tags">
+                            <a href="javascript:;"
+                               @click="sArticlesByType(1,el._id)">{{el.name}}<span>（{{el.count}}）</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="indexTag">
+                <div class="indexTagTitle">历程</div>
+                <div class="indexTagTags">
+                    <ul>
+                        <li v-for="el in lives">
+                            <a href="javascript:;" @click="sArticlesByType(2,el._id)">{{el._id|subLiveTime}}<span>[{{el.count}}篇]</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="col-md-12 text-center footer">
+            <h4>
+                敬请期待。。。
+            </h4>
+        </div>
+    </div>
+</div>
+
+<script src="../lib/vue.js"></script>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/axios.js"></script>
+<script src="../lib/moment.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.js"></script>
+<script src="../control/logic/index.js"></script>
+</body>
+</html>

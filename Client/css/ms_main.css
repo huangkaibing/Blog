@@ -1,0 +1,88 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.container-fluid {
+    width: 1200px;
+}
+
+.footer {
+    margin-top: 100px;
+    min-height: 100px;
+}
+
+.footer h4 {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    line-height: 100px;
+}
+
+/***************************************************管理系统**************************************************/
+/***************************************************管理系统**************************************************/
+/*管理系统首页*/
+.ms_index_topbtn {
+    float: right;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.table {
+    margin-top: 15px;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table tr th {
+    text-align: center;
+}
+
+.content {
+    min-height: 400px;
+}
+
+/*博文新增add*/
+.addarticle {
+    width: 100%;
+}
+
+.ms_editormdtop {
+    padding-bottom: 5px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.ms_editormdtop_title input {
+    height: 35px;
+    width: 350px;
+    background: #fff;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.ms_editormdtop_tag {
+    padding-left: 30px;
+}
+
+.ms_editormdtop_tag input {
+    height: 35px;
+    width: 350px;
+    background: #fff;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.ms_editormdtop_select {
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.ms_editormdtop_btn {
+    float: right;
+}

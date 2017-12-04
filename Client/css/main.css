@@ -1,0 +1,149 @@
+body {
+    background-color: #f9f9f9;
+}
+
+.container-fluid {
+    width: 1200px;
+}
+
+.details {
+    width: 1000px;
+}
+
+.footer {
+    margin-top: 100px;
+    min-height: 100px;
+}
+
+.footer h4 {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    line-height: 100px;
+}
+
+/*网站首页*/
+.titledesc {
+    display: inline;
+    padding-right: 25px;
+}
+
+.articlelist {
+    background-color: white;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.articlelist h3 {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    line-height: 40px;
+}
+
+.articledesc {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.articledesc a {
+    float: right;
+}
+
+.indexCenterRight {
+    padding-top: 20px;
+}
+
+.indexSearch input {
+    width: -webkit-fill-available;
+    height: 35px;
+    line-height: 35px;
+}
+
+.icon-search {
+    position: absolute;
+    right: 20px;
+    z-index: 5;
+    background-image: url(../img/search_24.png); /*引入图片图片*/
+    background-repeat: no-repeat; /*设置图片不重复*/
+    background-position: 0px 0px; /*图片显示的位置*/
+    width: 20px; /*设置图片显示的宽*/
+    height: 25px; /*图片显示的高*/
+    margin-top: 6px;
+}
+
+.indexTag {
+    border-radius: 5px;
+    background-color: white;
+    margin-top: 20px;
+    min-height: 170px;
+}
+
+.indexTagTitle {
+    border-bottom: 1px solid #eee;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.indexTagTags {
+    margin-top: 10px;
+}
+
+.indexTagTags li {
+    line-height: 25px;
+    list-style-type: none;
+}
+
+.indexTagTags ul {
+    margin-left: -5px;
+}
+
+.indexTagTags span {
+    display: inline-block;
+    float: right;
+    padding-right: 30px;
+}
+
+/*details*/
+.details_article_next {
+    background-color: #8ebde8;
+    border-radius: 5px;
+}
+
+.details_article_classfily {
+    float: left;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.details_article_prenext {
+    float: right;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 30px;
+}
+
+.details_article_next:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.details_articletitle {
+    padding-bottom: 10px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+    padding-left: 10px;
+}
+
+.details_articlelable {
+    padding-left: 10px;
+    font-style: italic;
+}
+
+.details_makdown {
+    padding-left: 10px;
+}

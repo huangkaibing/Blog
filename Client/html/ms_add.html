@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap -->
+    <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../lib/editor.md/css/style.css" rel="stylesheet"/>
+    <link href="../lib/editor.md/css/editormd.css" rel="stylesheet"/>
+    <link href="../css/ms_main.css" rel="stylesheet">
+    <title>ms_add</title>
+</head>
+<body>
+<div class="container-fluid addarticle" id="ms_add">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <div class="page-header text-left">
+                <h1>
+                    管理系统
+                    <small></small>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <div class="ms_editormdtop">
+                <span class="ms_editormdtop_title">标题：<input type="text" v-model="title"></span>
+                <span class="ms_editormdtop_tag">标签：<input type="text" v-model="tags"></span>
+                <div class="ms_editormdtop_select">
+                    <span>分类：</span>
+                    <span class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        {{selected}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li v-for="todo in classifys"><a href="javascript:;" @click="selectClassify(todo.name,todo._id)">{{todo.name}}</a></li>
+                    </ul>
+                    </span>
+                </div>
+                <div class="ms_editormdtop_btn">
+                    <button class="btn" type="button" @click="articleSave(0)">预览</button>
+                    <button class="btn" type="button" @click="articleSave(1)">发布</button>
+                </div>
+
+
+            </div>
+            <div id="editormd">
+                <textarea style="display:none;">{{content}}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="col-md-12 text-center footer">
+            <h4>
+                敬请期待。。。
+            </h4>
+        </div>
+    </div>
+</div>
+
+<script src="../lib/vue.js"></script>
+<script src="../lib/jquery.min.js"></script>
+<script src="../lib/axios.js"></script>
+<script src="../lib/bootstrap/js/bootstrap.js"></script>
+
+<script src="../lib/editor.md/editormd.min.js"></script>
+<script src="../control/logic/ms_add.js"></script>
+</body>
+</html>
