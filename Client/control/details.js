@@ -33,15 +33,25 @@ var params = new UrlSearch(); //实例化
 axios.get('/api/articles/' + params.id).then(function (response) {
     var data = response.data[0];
     app.title = data.title;
-    app.content = data.previewedHTML;
-    // app.content = data.markdown;
+    // app.content = data.previewedHTML;
+    app.content = data.markdown;
     app.author = data.author;
     app.createtime = data.createtime;
     app.classify_name = data.classify_name;
 
-    // $("#content").html(data.markdown);
+    setTimeout(function () {
+        $("#editormd-view").show();
+        var testEditormdView = editormd.markdownToHTML("editormd-view", {
+            htmlDecode: "style,script,iframe",
+            emoji: true,
+            taskList: true,
+            tex: true,  // 默认不解析
+            flowChart: true,  // 默认不解析
+            sequenceDiagram: true,  // 默认不解析
+        });
+    }, 50);
 
-    //上一篇.下一篇
+//上一篇.下一篇
     axios.get('/api/articles/3/' + data.createtime).then(function (response) {
         // app.articles = response.data;
         // console.log(response);
@@ -65,7 +75,7 @@ axios.get('/api/articles/' + params.id).then(function (response) {
 
 //浏览量新增
 axios.put('/api/articles/' + params.id).then(function (response) {
-    console.log(response);
+    // console.log(response);
 }).catch(function (error) {
     console.log(error);
 });

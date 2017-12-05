@@ -8,13 +8,11 @@
     <!-- Bootstrap -->
     <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
-
-    <link href="../css/markdown.css" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/editor.md/css/editormd.preview.min.css"/>
     <title>details</title>
 </head>
 <body>
 <div class="container-fluid details" id="details">
-
     <!--header-->
     <div class="row-fluid">
         <div class="col-md-12">
@@ -31,17 +29,16 @@
     </div>
 
     <!--content-->
-    <div class="row-fluid">
+    <div class="row-fluid" id="layout">
         <div class="col-md-12">
-
             <div class="details_article_next">
                 <div class="details_article_classfily">
                     <span>分类：{{classify_name}}</span>
                 </div>
                 <div class="details_article_prenext">
-                    <div v-if="last_id"><a href="javascript:;" @click="goDetails(last_id)">上一篇：{{lastArticleTitle}}</a>
+                    <div v-if="last_id"><a href="javascript:" @click="goDetails(last_id)">上一篇：{{lastArticleTitle}}</a>
                     </div>
-                    <div v-if="next_id"><a href="javascript:;" @click="goDetails(next_id)">下一篇：{{nextArticleTitle}}</a>
+                    <div v-if="next_id"><a href="javascript:" @click="goDetails(next_id)">下一篇：{{nextArticleTitle}}</a>
                     </div>
                 </div>
             </div>
@@ -56,7 +53,11 @@
                 <p>作者：{{author}}</p>
                 <p>日期：{{createtime|subTime}}</p>
             </div>
-            <div class="details_makdown markdown-body" v-html="content">
+
+            <div id="editormd-view" class="details_makdown" style="display: none">
+                <textarea>
+                    {{content}}
+                </textarea>
             </div>
 
         </div>
@@ -77,6 +78,11 @@
 <script src="../lib/axios.js"></script>
 <script src="../lib/moment.js"></script>
 <script src="../lib/bootstrap/js/bootstrap.js"></script>
+
+<script src="../lib/editor.md/lib/marked.min.js"></script>
+<script src="../lib/editor.md/lib/prettify.min.js"></script>
+<script src="../lib/editor.md/editormd.min.js"></script>
+
 <script src="../control/details.js"></script>
 </body>
 </html>
