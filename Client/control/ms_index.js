@@ -31,6 +31,9 @@ var app = new Vue({
         },
         goAdd: function () {
             window.location.href = "ms_add.html";
+        },
+        goClassifyAdd: function () {
+            window.location.href = "ms_classify_add.html";
         }
     }
 });

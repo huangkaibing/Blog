@@ -17,10 +17,12 @@
     <div class="row-fluid">
         <div class="col-md-12">
             <div class="page-header text-left">
-                <h1>
-                    管理系统
-                    <small></small>
-                </h1>
+                <a href="ms_index.html">
+                    <h1>
+                        管理系统
+                        <small></small>
+                    </h1>
+                </a>
             </div>
         </div>
     </div>
@@ -39,7 +41,8 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li v-for="todo in classifys"><a href="javascript:;" @click="selectClassify(todo.name,todo._id)">{{todo.name}}</a></li>
+                        <li v-for="todo in classifys"><a href="javascript:;"
+                                                         @click="selectClassify(todo.name,todo._id)">{{todo.name}}</a></li>
                     </ul>
                     </span>
                 </div>

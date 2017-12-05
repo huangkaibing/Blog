@@ -15,10 +15,12 @@
     <div class="row-fluid">
         <div class="col-md-12">
             <div class="page-header">
-                <h1>
-                    管理系统
-                    <small></small>
-                </h1>
+                <a href="ms_index.html">
+                    <h1>
+                        管理系统
+                        <small></small>
+                    </h1>
+                </a>
             </div>
         </div>
     </div>
@@ -34,16 +36,14 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">等待开发...</a></li>
                     </ul>
                 </div>
 
                 <div class="ms_index_topbtn">
                     <button class="btn" type="button">查询</button>
-                    <button class="btn" type="button" @click="goAdd()">新增</button>
+                    <button class="btn" type="button" @click="goAdd()">博客新增</button>
+                    <button class="btn" type="button" @click="goClassifyAdd()">分类新增</button>
                 </div>
             </div>
 
