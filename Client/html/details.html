@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <!-- Bootstrap -->
-    <link href="../lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--highlight-->
+    <link href="../css/atom-one-dark.min.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="../lib/editor.md/css/editormd.preview.min.css"/>
     <title>details</title>
 </head>
 <body>
@@ -54,11 +55,7 @@
                 <p>日期：{{createtime|subTime}}</p>
             </div>
 
-            <div id="editormd-view" class="details_makdown" style="display: none">
-                <textarea>
-                    {{content}}
-                </textarea>
-            </div>
+            <div class="details_makdown" v-html="content" v-highlight></div>
 
         </div>
     </div>
@@ -73,16 +70,10 @@
     </div>
 </div>
 
-<script src="../lib/vue.js"></script>
-<script src="../lib/jquery.min.js"></script>
-<script src="../lib/axios.js"></script>
-<script src="../lib/moment.js"></script>
-<script src="../lib/bootstrap/js/bootstrap.js"></script>
-
-<script src="../lib/editor.md/lib/marked.min.js"></script>
-<script src="../lib/editor.md/lib/prettify.min.js"></script>
-<script src="../lib/editor.md/editormd.min.js"></script>
-
+<script src="../lib/vue.min.js"></script>
+<script src="../lib/axios.min.js"></script>
+<script src="../lib/marked.min.js"></script>
+<script src="../lib/highlight.min.js"></script>
 <script src="../control/details.js"></script>
 </body>
 </html>

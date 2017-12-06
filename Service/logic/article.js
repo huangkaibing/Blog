@@ -196,7 +196,7 @@ function getArticleListByType(req, res) {
     var obj1 = mongoose.model('article', ARTICLE_BO);
     var obj2 = mongoose.model('articletagslink', ARTICLETAGSLINK_BO);
 
-    var type = req.params.type;
+    var type = parseInt(req.params.type);
     //标签
     if (type === 1) {
         obj2.find({'tag_id': req.params.arg}, null, {sort: ({"createtime": -1})}, function (err, result) {
@@ -275,7 +275,7 @@ function addClassifys(req, res) {
 function updateArticleViewnum(req, res) {
     var obj = mongoose.model('article', ARTICLE_BO);
     obj.update({'_id': req.params.id}, {'$inc': {"viewnum": 1}}, function () {
-        res.send(req.params.id + "-->>修改成功！");
+        res.send("");
     });
 }
 

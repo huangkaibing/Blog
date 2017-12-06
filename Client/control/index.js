@@ -25,7 +25,6 @@ var app = new Vue({
         sArticlesByType: function (type, arg) {
             axios.get('/api/articles/' + type + '/' + arg).then(function (response) {
                 app.articles = response.data;
-                console.log(response);
             }).catch(function (error) {
                 console.log(error);
             });
@@ -36,7 +35,6 @@ var app = new Vue({
 //文章列表查询
 axios.get('/api/articles').then(function (response) {
     app.articles = response.data;
-    console.log(response);
 }).catch(function (error) {
     console.log(error);
 });
@@ -44,7 +42,6 @@ axios.get('/api/articles').then(function (response) {
 //标签查询
 axios.get('/api/tags').then(function (response) {
     app.tags = response.data;
-    console.log(response);
 }).catch(function (error) {
     console.log(error);
 });
@@ -52,7 +49,6 @@ axios.get('/api/tags').then(function (response) {
 //历程查询
 axios.get('/api/articles/lives').then(function (response) {
     app.lives = response.data;
-    console.log(response);
 }).catch(function (error) {
     console.log(error);
 });

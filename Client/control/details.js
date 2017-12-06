@@ -2,9 +2,17 @@
  *web详情
  */
 
+hljs.initHighlightingOnLoad();
+Vue.directive('highlight', function (el) {
+    var blocks = el.querySelectorAll('pre code');
+    blocks.forEach(function (block) {
+        hljs.highlightBlock(block)
+    })
+});
+
 //时间处理
 Vue.filter('subTime', function (value) {
-    return moment(value).format('YYYY-MM-DD');
+    return value.substring(0, 10);
 });
 
 var app = new Vue({
@@ -26,7 +34,6 @@ var app = new Vue({
     }
 });
 
-
 var params = new UrlSearch(); //实例化
 
 //文章列表查询
@@ -38,29 +45,15 @@ axios.get('/api/articles/' + params.id).then(function (response) {
     app.author = data.author;
     app.createtime = data.createtime;
     app.classify_name = data.classify_name;
+    app.content = marked(data.markdown);
 
-    setTimeout(function () {
-        $("#editormd-view").show();
-        var testEditormdView = editormd.markdownToHTML("editormd-view", {
-            htmlDecode: "style,script,iframe",
-            emoji: true,
-            taskList: true,
-            tex: true,  // 默认不解析
-            flowChart: true,  // 默认不解析
-            sequenceDiagram: true,  // 默认不解析
-        });
-    }, 50);
-
-//上一篇.下一篇
+    //上一篇.下一篇
     axios.get('/api/articles/3/' + data.createtime).then(function (response) {
-        // app.articles = response.data;
-        // console.log(response);
         var bean = response.data;
         if (bean.lastArticle) {
             app.lastArticleTitle = bean.lastArticle.title;
             app.last_id = bean.lastArticle._id;
         }
-
         if (bean.nextArticle) {
             app.nextArticleTitle = bean.nextArticle.title;
             app.next_id = bean.nextArticle._id;
