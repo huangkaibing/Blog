@@ -27,7 +27,7 @@
     </div>
     <div class="row-fluid">
         <div class="col-md-9">
-            <div class="articlelist" v-for="el in articles">
+            <div class="articlelist" v-for="el in articles" v-cloak>
                 <h3>
                     <a href="javascript:" @click="goDetails(el._id)">{{el.title}}</a>
                 </h3>
@@ -58,7 +58,7 @@
                 <div class="indexTagTitle">标签</div>
                 <div class="indexTagTags">
                     <ul>
-                        <li v-for="el in tags">
+                        <li v-for="el in tags" v-cloak>
                             <a href="javascript:"
                                @click="sArticlesByType(1,el._id)">{{el.name}}<span>（{{el.count}}）</span></a>
                         </li>
@@ -69,7 +69,7 @@
                 <div class="indexTagTitle">历程</div>
                 <div class="indexTagTags">
                     <ul>
-                        <li v-for="el in lives">
+                        <li v-for="el in lives" v-cloak>
                             <a href="javascript:" @click="sArticlesByType(2,el._id)">{{el._id|subLiveTime}}<span>[{{el.count}}篇]</span></a>
                         </li>
                     </ul>
