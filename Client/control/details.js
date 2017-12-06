@@ -46,7 +46,7 @@ axios.get('/api/articles/' + params.id).then(function (response) {
     app.createtime = data.createtime;
     app.classify_name = data.classify_name;
     app.content = marked(data.markdown);
-
+    document.title = data.title + "--黄开兵的个人博客!";
     //上一篇.下一篇
     axios.get('/api/articles/3/' + data.createtime).then(function (response) {
         var bean = response.data;
