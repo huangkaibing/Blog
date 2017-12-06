@@ -13,7 +13,7 @@
     <title>黄开兵的个人博客</title>
 </head>
 <body>
-<div class="container-fluid details" id="details">
+<div class="container-fluid details" id="details" v-cloak>
     <!--header-->
     <div class="row-fluid">
         <div class="col-md-12">
@@ -29,22 +29,22 @@
     </div>
 
     <!--content-->
-    <div class="row-fluid" id="layout">
+    <div class="row-fluid">
         <div class="col-md-12">
             <div class="details_article_next">
                 <div class="details_article_classfily">
-                    <span v-cloak>分类：{{classify_name}}</span>
+                    <span>分类：{{classify_name}}</span>
                 </div>
                 <div class="details_article_prenext">
-                    <div v-if="last_id" v-cloak><a href="javascript:" @click="goDetails(last_id)">上一篇：{{lastArticleTitle}}</a>
+                    <div v-if="last_id"><a href="javascript:" @click="goDetails(last_id)">上一篇：{{lastArticleTitle}}</a>
                     </div>
-                    <div v-if="next_id" v-cloak><a href="javascript:" @click="goDetails(next_id)">下一篇：{{nextArticleTitle}}</a>
+                    <div v-if="next_id"><a href="javascript:" @click="goDetails(next_id)">下一篇：{{nextArticleTitle}}</a>
                     </div>
                 </div>
             </div>
 
             <div class="details_articletitle">
-                <h1 v-cloak>
+                <h1>
                     {{title}}
                 </h1>
             </div>
@@ -53,9 +53,7 @@
                 <p v-cloak>作者：{{author}}</p>
                 <p v-cloak>日期：{{createtime|subTime}}</p>
             </div>
-
             <div class="details_makdown" v-html="content" v-highlight></div>
-
         </div>
     </div>
 

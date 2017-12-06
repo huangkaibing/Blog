@@ -5,6 +5,11 @@ body {
 a, a:hover {
     text-decoration: none;
 }
+
+[v-cloak] {
+    display: none;
+}
+
 .container-fluid {
     width: 1200px;
 }

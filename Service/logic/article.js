@@ -176,7 +176,12 @@ function getArticleTags(req, res) {
 //文章列表查询
 function getArticles(req, res) {
     var obj = mongoose.model('article', ARTICLE_BO);
-    obj.find(null, null, {sort: ({"createtime": -1})}, function (err, result) {
+    obj.find(null, {
+        createtime: 1,
+        title: 1,
+        viewnum: 1,
+        classify_name: 1
+    }, {sort: ({"createtime": -1})}, function (err, result) {
         res.send(result);
     });
 }
@@ -197,6 +202,7 @@ function getArticleListByType(req, res) {
     var obj2 = mongoose.model('articletagslink', ARTICLETAGSLINK_BO);
 
     var type = parseInt(req.params.type);
+
     //标签
     if (type === 1) {
         obj2.find({'tag_id': req.params.arg}, null, {sort: ({"createtime": -1})}, function (err, result) {
@@ -228,13 +234,17 @@ function getArticleListByType(req, res) {
     var bean = {};
     if (type === 3) {
         //上一篇
-        obj1.find({"createtime": {"$lt": req.params.arg}}, null, {
+        obj1.find({"createtime": {"$lt": req.params.arg}}, {
+            title: 1
+        }, {
             sort: ({"createtime": -1}),
             limit: 1
         }, function (err, result) {
             bean.lastArticle = result[0];
             //下一篇
-            obj1.find({"createtime": {"$gt": req.params.arg}}, null, {
+            obj1.find({"createtime": {"$gt": req.params.arg}}, {
+                title: 1
+            }, {
                 sort: ({"createtime": 1}),
                 limit: 1
             }, function (err, result) {
@@ -248,7 +258,9 @@ function getArticleListByType(req, res) {
 //文章详情查询
 function getArticlesDetails(req, res) {
     var obj = mongoose.model('article', ARTICLE_BO);
-    obj.find({'_id': req.params.id}, function (err, result) {
+    obj.find({'_id': req.params.id}, {
+        createtime: 1, title: 1, markdown: 1, author: 1, classify_name: 1
+    }, function (err, result) {
         res.send(result);
     });
 }
