@@ -60,5 +60,13 @@ router.delete('/articles/:id', function (req, res) {
     article.deleteArticle(req, res);
 });
 
+/*===================================================管理系登录=============================================================================*/
+router.post('/user', function (req, res) {
+    article.ms_login(req, res);
+});
+
+router.get('/user/:id', function (req, res) {
+    article.ms_sUser(req, res);
+});
 
 module.exports = router;

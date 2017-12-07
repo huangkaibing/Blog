@@ -3,6 +3,19 @@
  * 2017-11-14 15:43:06
  */
 
+var usrid = sessionStorage.getItem("usrid");
+if (!usrid) {
+    window.location.href = "ms_login.html";
+}
+axios.get('/api/user/' + usrid).then(function (response) {
+    var bean = response.data;
+    if (bean === "fail") {
+        window.location.href = "ms_login.html";
+    }
+}).catch(function (error) {
+    console.log(error);
+});
+
 //时间处理
 Vue.filter('subListTime', function (value) {
     return moment(value).format('YYYY-MM-DD HH:MM');

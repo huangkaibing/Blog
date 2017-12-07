@@ -8,10 +8,10 @@
     <!-- Bootstrap -->
     <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/ms_main.css" rel="stylesheet">
-    <title>ms_login</title>
+    <title>管理系统</title>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid" id="ms_login">
     <div class="row-fluid">
         <div class="col-md-12">
             <div class="page-header">
@@ -27,21 +27,21 @@
             <div class="form-horizontal">
                 <div class="control-group">
                     <label class="control-label" for="inputEmail">账号:</label>
-                    <input id="inputEmail" type="text" />
+                    <input id="inputEmail" type="text" v-model="username"/>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="inputPassword">密码:</label>
-                    <input id="inputPassword" type="password" />
+                    <input id="inputPassword" type="password" v-model="password"/>
                 </div>
                 <div class="control-group">
                     <div class="controls" style="padding-top: 5px;padding-left: 35px">
-                        <button type="button" class="btn btn-primary" style="width: 180px" >登陆</button>
+                        <button type="button" class="btn btn-primary" style="width: 180px" @click="login()">登陆</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row-fluid" >
+    <div class="row-fluid">
         <div class="col-md-12 text-center footer">
             <h4>
                 <a href="http://www.miitbeian.gov.cn/">鄂ICP备17028693号</a>
@@ -51,7 +51,9 @@
 </div>
 
 <script src="../lib/vue.min.js"></script>
-<script src="../lib/jquery.min.js"></script>
-<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../lib/axios.min.js"></script>
+<script src="../control/ms_login.js"></script>
+<!--<script src="../lib/jquery.min.js"></script>-->
+<!--<script src="../lib/bootstrap/js/bootstrap.min.js"></script>-->
 </body>
 </html>

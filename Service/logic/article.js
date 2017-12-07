@@ -8,6 +8,7 @@ var ARTICLE_BO = require('../bo/article');
 var CLASSIFY_BO = require('../bo/classify');
 var TAG_BO = require('../bo/tag');
 var ARTICLETAGSLINK_BO = require('../bo/articletagslink');
+var PERSON_BO = require('../bo/person');
 
 //文章新增
 function addArticles(req, res) {
@@ -302,8 +303,31 @@ function deleteArticle(req, res) {
             res.send(req.params.id + "-->>删除成功！");
         });
     });
+}
 
+//管理系统登录
+function ms_login(req, res) {
+    var obj = mongoose.model('user', PERSON_BO);
+    obj.find({'usr': req.body.username, 'pwd': req.body.password}, function (err, result) {
+        if (err) res.send("fail");
+        if (result != null && result.length > 0) {
+            res.send(result[0]);
+        } else {
+            res.send("fail");
+        }
+    })
+}
 
+function ms_sUser(req, res) {
+    var obj = mongoose.model('user', PERSON_BO);
+    obj.find({'_id': req.params.id}, function (err, result) {
+        if (err) res.send("fail");
+        if (result != null && result.length > 0) {
+            res.send(result[0]);
+        } else {
+            res.send("fail");
+        }
+    })
 }
 
 module.exports.addArticles = addArticles;
@@ -317,3 +341,5 @@ module.exports.getArticlesLives = getArticlesLives;
 module.exports.updateArticleViewnum = updateArticleViewnum;
 module.exports.deleteArticle = deleteArticle;
 module.exports.getArticleTags = getArticleTags;
+module.exports.ms_login = ms_login;
+module.exports.ms_sUser = ms_sUser;
